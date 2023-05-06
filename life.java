@@ -5,32 +5,33 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Test1 {
+public class life {
 
 	public static void main(String[] args) throws ParseException {
-		System.out.println("ÇëÊäÈëÄãµÄ³öÉúÄêÔÂ£¨°´yyyy-mm-dd¸ñÊ½£©");
+		System.out.println("è¯·è¾“å…¥ä½ çš„å‡ºç”Ÿå¹´æœˆï¼ˆæŒ‰yyyy-mm-ddæ ¼å¼ï¼‰");
 		Scanner scan = new Scanner(System.in);
 		String bir = scan.nextLine();
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date birth = sdf.parse(bir);
 		
 		Date now = new Date();
-		long time = now.getTime() - birth.getTime();
-	    //System.out.println("ÄãÒÑ¾­»îÁË"+time+"ºÁÃë");
+		long nowTime = now.getTime();
+		long birthTime = birth.getTime();
+		long time = nowTime - birthTime;
 		long day = time/1000/60/60/24;
 		long hour = (time%86400000)/3600000;
 		long minute = (time%86400000%3600000)/60000;
 		long second = (time%86400000%3600000%60000)/1000;
 		long msec = time%86400000%3600000%60000%1000;
-		System.out.println("¹§Ï²Äã»îÁË"+day+"Ìì"+hour+"Ğ¡Ê±"+minute+"·ÖÖÓ"+second+"Ãë"+msec+"ºÁÃë");
+		System.out.println("æ­å–œä½ æ´»äº†"+day+"å¤©"+hour+"å°æ—¶"+minute+"åˆ†é’Ÿ"+second+"ç§’"+msec+"æ¯«ç§’");
 		long s = 36500 - day;
-		System.out.println("ÄãÀëÒ»°ÙËê»¹²î"+s+"Ìì");
+		System.out.println("ä½ ç¦»ä¸€ç™¾å²è¿˜å·®"+s+"å¤©");
 		
 		 s = s*60*60*1000*24;
 		now.setTime(now.getTime()+s);
 		
-		System.out.println(sdf.format(now)+"ÊÇÄãµÄ100Ëê¼ÍÄîÈÕ");
+		System.out.println(sdf.format(now)+"æ˜¯ä½ çš„100å²çºªå¿µæ—¥");
 	}
 
 }
